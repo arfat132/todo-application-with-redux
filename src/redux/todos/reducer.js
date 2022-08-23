@@ -20,6 +20,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 {
                     id: nextTodoId(state),
+                    text: action.payload,
+                    completed: false,
                 },
             ];
 
@@ -62,7 +64,7 @@ const reducer = (state = initialState, action) => {
             return state.filter((todo) => !todo.completed);
 
         default:
-            break;
+            return state;
     }
 };
 
